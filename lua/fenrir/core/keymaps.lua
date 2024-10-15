@@ -3,6 +3,10 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode using jk" })
+keymap.set("i", "jkl", function()
+  vim.cmd("write")
+  vim.cmd("stopinsert")
+end, { desc = "Exit insert modes and save" })
 
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Create Vertical split" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Create Horizontal split" })
