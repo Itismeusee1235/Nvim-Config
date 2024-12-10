@@ -3,9 +3,11 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 keymap.set("i", "jkl", function()
-  vim.cmd("write")
-  vim.cmd("stopinsert")
+	vim.cmd("stopinsert")
+	vim.cmd("write")
 end, { desc = "Exit insert mode and save" })
+
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Create Vertical split" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Create Horizontal split" })
